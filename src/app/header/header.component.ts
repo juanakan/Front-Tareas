@@ -21,7 +21,7 @@ export class HeaderComponent {
     }
   }
 
-  // Método para cerrar sesión ahora
+  // Método para cerrar sesión
   logout() {
     localStorage.removeItem('user');
     this.user = null;
