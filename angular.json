@@ -60,7 +60,8 @@
               "buildTarget": "Aplicacion-tareas:build:production"
             },
             "development": {
-              "buildTarget": "Aplicacion-tareas:build:development"
+              "buildTarget": "Aplicacion-tareas:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

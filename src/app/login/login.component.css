@@ -1,0 +1,68 @@
+/* Contenedor principal - Alineamos un poco más arriba */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* En lugar de center, lo subimos */
+    height: 100vh;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    padding-top: 10vh; /* Espacio arriba para ajustar la altura */
+  }
+  
+ /* Tarjeta de login */
+.login-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    text-align: center;
+  }
+  
+  /* Grupo de inputs con icono */
+  .input-group {
+    display: flex;
+    align-items: center;
+    background: #f1f1f1;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+  }
+  
+  .input-group .icon {
+    margin-right: 10px;
+    color: #666;
+  }
+  
+  .input-group input {
+    border: none;
+    background: transparent;
+    outline: none;
+    flex: 1;
+  }
+  
+  /* Botón animado */
+  .btn {
+    width: 100%;
+    background: #667eea;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .btn:hover {
+    background: #5a67d8;
+  }
+
+  .error-message {
+    background: #ffdddd;
+    color: #d9534f;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: bold;
+  }
+  

@@ -1,0 +1,21 @@
+<p>header works!</p>
+<header class="header">
+    <div class="logo">Mi Web</div>
+    
+    <div *ngIf="user; else loginButton" class="user-menu">
+      <span class="username">{{ user.username }}</span>
+      <div class="dropdown">
+        <button class="dropbtn">▼</button>
+        <div class="dropdown-content">
+          <a href="#">Perfil</a>
+          <a href="#">Configuración</a>
+          <a href="#" (click)="logout()">Cerrar sesión</a>
+        </div>
+      </div>
+    </div>
+  
+    <ng-template #loginButton>
+      <a href="/login" class="login-link">Iniciar Sesión</a>
+    </ng-template>
+  </header>
+  
