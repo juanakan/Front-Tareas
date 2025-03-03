@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgIf } from '@angular/common';
 import { AuthService } from '../services/auth.service';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent {
   password = '';
   errorMessage = ''; // Mensaje de error
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit() {
     this.errorMessage = '';
@@ -23,11 +24,9 @@ export class LoginComponent {
 
     this.authService.login(this.username, this.password).subscribe({
       next: (response) => {
-        alert(response.username);
         if (response) {
-          console.log(response);
           localStorage.setItem('user', JSON.stringify(response));
-          window.location.reload();
+          this.router.navigate(['/tareas']);
         } else {
           this.errorMessage = 'Usuario o contraseña incorrectos';
         }
