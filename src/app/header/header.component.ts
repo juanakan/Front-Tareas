@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgIf } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,7 @@ import { NgIf } from '@angular/common';
 export class HeaderComponent {
   user: any = null;
 
-  constructor() {
+  constructor(private router: Router) {
     this.loadUser();
   }
   loadUser() {
@@ -25,6 +26,13 @@ export class HeaderComponent {
   logout() {
     localStorage.removeItem('user');
     this.user = null;
+    window.location.reload();
+  }
+
+  login() {
+    localStorage.removeItem('user');
+    this.user = null;
+    this.router.navigate(['/login']);
     window.location.reload();
   }
 }

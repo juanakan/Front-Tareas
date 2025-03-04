@@ -1,20 +1,25 @@
-<div class="login-container">
-    <div class="login-card">
-      <h2 class="text-center mb-4">Iniciar Sesión</h2>
-      <div *ngIf="errorMessage" class="error-message">
-        {{ errorMessage }}
-      </div>
-      <form (ngSubmit)="onSubmit()">
-        <div class="input-group">
-          <input type="text" [(ngModel)]="username" name="username" placeholder="Usuario" required>
-        </div>
-  
-        <div class="input-group">
-          <input type="password" [(ngModel)]="password" name="password" placeholder="Contraseña" required>
-        </div>
-  
-        <button type="submit" class="btn">Ingresar</button>
-      </form>
+<div class="login-container d-flex align-items-center justify-content-center">
+  <div class="card shadow-lg p-4 rounded-4">
+    <h2 class="text-center text-primary fw-bold mb-3">Iniciar Sesión</h2>
+
+    <!-- Mensaje de error -->
+    <div *ngIf="errorMessage" class="alert alert-danger text-center py-2">
+      {{ errorMessage }}
     </div>
+
+    <form (ngSubmit)="onSubmit()">
+      <!-- Usuario -->
+      <div class="mb-3">
+        <input type="text" [(ngModel)]="username" name="username" class="form-control rounded-3" placeholder="Usuario" required>
+      </div>
+
+      <!-- Contraseña -->
+      <div class="mb-3">
+        <input type="password" [(ngModel)]="password" name="password" class="form-control rounded-3" placeholder="Contraseña" required>
+      </div>
+
+      <!-- Botón de login -->
+      <button type="submit" class="btn btn-primary w-100 rounded-3 fw-semibold">Ingresar</button>
+    </form>
   </div>
-  
+</div>

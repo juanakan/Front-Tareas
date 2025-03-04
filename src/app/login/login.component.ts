@@ -14,19 +14,22 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   username = '';
   password = '';
-  errorMessage = ''; // Mensaje de error
+  errorMessage = '';
+  isLoggedIn = false;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {
+    this.isLoggedIn = !!localStorage.getItem('user');
+  }
 
   onSubmit() {
     this.errorMessage = '';
-    const credentials = { username: this.username, password: this.password };
-
     this.authService.login(this.username, this.password).subscribe({
       next: (response) => {
         if (response) {
           localStorage.setItem('user', JSON.stringify(response));
+          this.isLoggedIn = true;
           this.router.navigate(['/tareas']);
+
         } else {
           this.errorMessage = 'Usuario o contraseña incorrectos';
         }
@@ -37,4 +40,3 @@ export class LoginComponent {
     });
   }
 }
-
