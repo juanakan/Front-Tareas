@@ -3,11 +3,12 @@ import { NgIf } from '@angular/common';
 import { AuthService } from '../services/auth.service';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [NgIf, FormsModule],
+  imports: [NgIf, FormsModule, HeaderComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -19,6 +20,9 @@ export class LoginComponent {
 
   constructor(private authService: AuthService, private router: Router) {
     this.isLoggedIn = !!localStorage.getItem('user');
+    if(this.isLoggedIn){
+      this.router.navigate(['/inicio']);
+    }
   }
 
   onSubmit() {
@@ -28,7 +32,7 @@ export class LoginComponent {
         if (response) {
           localStorage.setItem('user', JSON.stringify(response));
           this.isLoggedIn = true;
-          this.router.navigate(['/tareas']);
+          this.router.navigate(['/inicio']);
 
         } else {
           this.errorMessage = 'Usuario o contraseña incorrectos';

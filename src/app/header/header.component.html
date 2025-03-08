@@ -6,8 +6,8 @@
     </a>
 
     <!-- Menú de usuario o login -->
-    <div class="d-flex ms-auto align-items-center">
-      <ng-container *ngIf="user">
+    <div *ngIf="user!=null" class="d-flex ms-auto align-items-center">
+      <ng-container >
         <!-- Nombre de usuario a la izquierda del desplegable -->
         <span class="me-3 fs-6 text-dark">{{ user.username }}</span>
         

@@ -3,12 +3,12 @@ import { provideRouter, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { provideHttpClient } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
-import { TareasComponent } from './tareas/tareas.component';
+import { PaginaInicioComponent } from './pagina-inicio/pagina-inicio.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '',component: LoginComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'tareas', component: TareasComponent }
+  { path: 'inicio', component: PaginaInicioComponent }
 ];
 
 export const appConfig: ApplicationConfig = {

@@ -1,1 +1,18 @@
-<p>tareas works!</p>
+<div class="row">
+    <div *ngFor="let tarea of tareas" class="col-md-4 mb-3">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{ tarea.titulo }}</h5>
+          <p class="card-text">{{ tarea.description }}</p>
+          <p><strong>ID:</strong> {{ tarea.id }}</p>
+          <p><strong>Usuario:</strong> {{ tarea.userId }}</p>
+          <p><strong>Estado:</strong> 
+            <span [class.text-success]="tarea.completado" [class.text-danger]="!tarea.completado">
+              {{ tarea.completado ? 'Completado' : 'Pendiente' }}
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  

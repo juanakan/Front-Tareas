@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NgIf } from '@angular/common';
 import { Router } from '@angular/router';
+import { NgIf } from '@angular/common';
+
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  user: any = null;
+  user: any= null;
 
   constructor(private router: Router) {
     this.loadUser();
@@ -19,6 +20,7 @@ export class HeaderComponent {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
       this.user = JSON.parse(storedUser);
+
     }
   }
 
@@ -26,13 +28,6 @@ export class HeaderComponent {
   logout() {
     localStorage.removeItem('user');
     this.user = null;
-    window.location.reload();
-  }
-
-  login() {
-    localStorage.removeItem('user');
-    this.user = null;
-    this.router.navigate(['/login']);
     window.location.reload();
   }
 }
