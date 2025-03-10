@@ -1,0 +1,29 @@
+<app-header></app-header>
+<div class="login-container d-flex align-items-center justify-content-center">
+  <div class="card shadow-lg p-4 rounded-4">
+    <h2 class="text-center text-primary fw-bold mb-3">Usuario nuevo</h2>
+    <div *ngIf="errorMessage" class="alert alert-danger text-center py-2">
+        {{ errorMessage }}
+      </div>
+    <form (ngSubmit)="onSubmit()">
+      <!-- Usuario -->
+      <div class="mb-3">
+        <input type="text" [(ngModel)]="nuevoUsuario.username" name="username" class="form-control rounded-3" placeholder="Usuario" required>
+      </div>
+      <p *ngIf="usernameEmpty" class="invalid-feedback">{{userNameError}}</p>
+      <!-- Contraseña -->
+      <div class="mb-3">
+        <input type="password" [(ngModel)]="nuevoUsuario.password" name="password" class="form-control rounded-3" placeholder="Contraseña" required>
+      </div>
+      <p *ngIf="passwordEmpty" class="invalid-feedback">{{passwordError}}</p>
+      <!-- Email -->
+      <div class="mb-3">
+        <input type="email" [(ngModel)]="nuevoUsuario.email" name="email" class="form-control rounded-3" placeholder="Email" required>
+      </div>
+      <p *ngIf="emailEmpty" class="invalid-feedback">{{emailError}}</p>
+      <p *ngIf="emailIncorrect" class="invalid-feedback">{{emailInvalid}}</p>
+
+      <button type="submit" class="btn btn-primary w-100 rounded-3 fw-semibold">Alta</button>
+    </form>
+  </div>
+</div>

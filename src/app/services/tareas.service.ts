@@ -7,11 +7,11 @@ import { Task } from '../models/task.model';
   providedIn: 'root'
 })
 export class TareasService {
-  private apiUrl = 'http://localhost:8181/api/tasks/';
+  private apiUrl = 'http://localhost:8181/api/tasks/user/';
 
   constructor(private http: HttpClient) { }
 
-  obtenerTareas(): Observable<Task[]> {
-    return this.http.get<Task[]>(this.apiUrl);
+  obtenerTareas(idUser: number): Observable<Task[]> {
+    return this.http.get<Task[]>(this.apiUrl+idUser);
   }
 }
