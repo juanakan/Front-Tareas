@@ -17,11 +17,18 @@ export class LoginComponent {
   password = '';
   errorMessage = '';
   isLoggedIn = false;
+  isUpdate = false;
 
   constructor(private authService: AuthService, private router: Router) {
     this.isLoggedIn = !!localStorage.getItem('user');
-    if(this.isLoggedIn){
+    const modificarUsuario = localStorage.getItem('modificarUsuario');
+    alert(modificarUsuario);
+
+    if(this.isLoggedIn && modificarUsuario==='false'){
       this.router.navigate(['/inicio']);
+    }else if (this.isLoggedIn && modificarUsuario==='true'){
+      localStorage.setItem('modificarUsuario', 'false');
+      this.router.navigate(['/modificar']);
     }
   }
 

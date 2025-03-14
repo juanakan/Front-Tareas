@@ -1,0 +1,28 @@
+<app-header></app-header>
+<div class="login-container d-flex align-items-center justify-content-center">
+  <div class="card shadow-lg p-4 rounded-4">
+    <h2 class="text-center text-primary fw-bold mb-3">Usuario nuevo</h2>
+    <div *ngIf="errorMessage" class="alert alert-danger text-center py-2">
+      {{ errorMessage }}
+    </div>
+    <form (ngSubmit)="onSubmit()">
+      <!-- Usuario -->
+      <div class="mb-3">
+        <input type="text" [value]="username" name="username" class="form-control rounded-3" placeholder="Usuario" required disabled>
+      </div>
+      <!-- Contraseña antigua-->
+      <div class="mb-3">
+        <input type="password" [(ngModel)]="modificarUsuario.currentPassword" name="currentPassword" class="form-control rounded-3" placeholder="Contraseña anterior" required>
+      </div>
+      <!-- Contraseña antigua-->
+      <div class="mb-3">
+        <input type="password" [(ngModel)]="modificarUsuario.newPassword" name="newPassword" class="form-control rounded-3" placeholder=" Nueva contraseña" required>
+      </div>
+      <!-- Email -->
+      <div class="mb-3">
+        <input type="email" [(ngModel)]="modificarUsuario.email" name="email" class="form-control rounded-3" placeholder="Email" required>
+      </div>
+      <button type="submit" class="btn btn-primary w-100 rounded-3 fw-semibold">Modificar</button>
+    </form>
+  </div>
+</div>

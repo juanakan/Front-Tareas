@@ -24,11 +24,15 @@ export class HeaderComponent {
     }
   }
 
-  // Método para cerrar sesión
   logout() {
     localStorage.removeItem('user');
     this.user = null;
     window.location.reload();
+  }
+
+  modificar() {
+    localStorage.setItem('modificarUsuario', 'true');
+    this.router.navigate(['/modificar']);
   }
 }
 
