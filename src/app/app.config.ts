@@ -6,13 +6,15 @@ import { LoginComponent } from './login/login.component';
 import { PaginaInicioComponent } from './pagina-inicio/pagina-inicio.component';
 import { RegisterComponent } from './register/register.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
+import { CreateTareaComponent } from './create-tarea/create-tarea.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' }, 
   { path: 'login', component: LoginComponent },
   {path:'register', component:RegisterComponent},
   {path:'modificar', component:UpdateUserComponent},
-  { path: 'inicio', component: PaginaInicioComponent }
+  { path: 'inicio', component: PaginaInicioComponent },
+  { path: 'nuevaTarea', component: CreateTareaComponent}
   
 ];
 

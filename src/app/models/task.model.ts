@@ -2,6 +2,6 @@ export interface Task {
     id: number;
     titulo: string;
     description: string;
-    completado: boolean;
+    prioridad: number;
     userId: number;
   }

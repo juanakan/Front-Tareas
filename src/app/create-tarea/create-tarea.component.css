@@ -1,0 +1,15 @@
+.tarea-container {
+    margin-top: 100px;
+  }
+  
+  .card {
+    padding: 20px;
+    width: 350px;
+    margin-top: 20px;
+  }
+
+  .invalid-feedback {
+    display: block;
+    color: #dc3545;
+    font-size: 0.875em;
+  }

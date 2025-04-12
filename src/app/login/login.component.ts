@@ -22,7 +22,6 @@ export class LoginComponent {
   constructor(private authService: AuthService, private router: Router) {
     this.isLoggedIn = !!localStorage.getItem('user');
     const modificarUsuario = localStorage.getItem('modificarUsuario');
-    alert(modificarUsuario);
 
     if(this.isLoggedIn && modificarUsuario==='false'){
       this.router.navigate(['/inicio']);
